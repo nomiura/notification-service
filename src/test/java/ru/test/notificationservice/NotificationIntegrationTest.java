@@ -16,7 +16,7 @@ import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-@EmbeddedKafka(partitions = 1, topics = "user-events")
+@EmbeddedKafka(partitions = 1, topics = "${topic.user-events}")
 public class NotificationIntegrationTest {
 
     @MockitoBean

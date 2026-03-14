@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class UserEventConsumer {
     private final EmailService emailService;
 
-    @KafkaListener(topics = "user-events", groupId = "notification-group")
+    @KafkaListener(topics = "${topic.user-events}")
     public void consume(UserEvent event) {
         if (event.getState().equals(Operation.CREATE)) {
             emailService.sendCreatedEmail(event.getEmail());
